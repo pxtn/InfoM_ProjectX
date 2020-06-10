@@ -12,8 +12,8 @@ public class Recipient extends Person{
 	@OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL)
 	private List<Message> messages = new ArrayList<Message>();
 
-	public Recipient(String email, String company, List<Message> messages) {
-		super(email);
+	public Recipient(String name, String email, String company, List<Message> messages) {
+		super(name, email);
 		this.company = company;
 		this.messages = messages;
 	}

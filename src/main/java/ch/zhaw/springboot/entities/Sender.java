@@ -12,8 +12,8 @@ public class Sender extends Person{
 	@OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
 	private List<Message> messages = new ArrayList<Message>();
 
-	public Sender(String email, String location, List<Message> messages) {
-		super(email);
+	public Sender(String name, String email, String location, List<Message> messages) {
+		super(name, email);
 		this.location = location;
 		this.messages = messages;
 	}
