@@ -1,34 +1,26 @@
 package ch.zhaw.springboot.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@MappedSuperclass
 public class Person {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	private String name;
-	private long birthdate;
+	private String email;
 
-	public Person(String name, long birthdate) {
-		this.name = name;
-		this.birthdate = birthdate;
+
+	public Person(String email) {
+		this.email = email;
 	}
 
 	public Person() {
-
 	}
 
-	public String getName() {
-		return this.name;
-	}
 
-	public long getBirthdate() {
-		return this.birthdate;
+	public String getEmail() {
+		return email;
 	}
 }
