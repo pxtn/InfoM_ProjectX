@@ -2,6 +2,8 @@ package ch.zhaw.springboot.entities;
 
 import javax.persistence.*;
 
+/*@Entity
+@Inheritance(strategy = InheritanceType.JOINED)*/
 @MappedSuperclass
 public class Person {
 

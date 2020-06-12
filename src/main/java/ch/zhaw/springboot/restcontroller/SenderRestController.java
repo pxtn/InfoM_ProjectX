@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,9 +41,9 @@ public class SenderRestController {
 		}
 	}
 
-	@RequestMapping(value = "support/v1/senders/names", method = RequestMethod.GET)
-	public ResponseEntity<List<String>> getNamesOfPtype() {
-		List<String> result = this.repository.getNamesOfPtype();
+	@RequestMapping(value = "support/v1/senders/names/{date}", method = RequestMethod.GET)
+	public ResponseEntity<List<String>> getNameOfSenderOfMessageFromDate(@PathVariable("date") Date date) {
+		List<String> result = this.repository.getNameOfSenderOfMessageFromDate(date);
 		if (result != null) {
 			return new ResponseEntity<List<String>>(result, HttpStatus.OK);
 		} else {
