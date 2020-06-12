@@ -1,5 +1,7 @@
 package ch.zhaw.springboot.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -13,12 +15,15 @@ public class Message{
 	private long id;
 
 	private Date date;
+	@Column(length = 2000)
 	private String content;
 
 	@ManyToOne(fetch=FetchType.EAGER)
+	@JsonIgnore
 	private Sender sender;
 
 	@ManyToOne(fetch=FetchType.EAGER)
+	@JsonIgnore
 	private Recipient recipient;
 
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})

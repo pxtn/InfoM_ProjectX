@@ -19,7 +19,7 @@ public class MessageRestController {
 	@Autowired
 	private MessageRepository repository;
 
-	@RequestMapping(value = "feedback/v1/messages", method = RequestMethod.GET)
+	@RequestMapping(value = "support/v1/messages", method = RequestMethod.GET)
 	public ResponseEntity<List<Message>> getMessages() {
 		List<Message> result = this.repository.findAll();
 
@@ -30,7 +30,7 @@ public class MessageRestController {
 		}
 	}
 
-	@RequestMapping(value = "feedback/v1/messages/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "support/v1/messages/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Optional<Message>> getMessageById(@PathVariable("id") long id) {
 		Optional<Message> result = this.repository.findById(id);
 		if (result != null) {

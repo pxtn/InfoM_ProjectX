@@ -19,7 +19,7 @@ public class SenderRestController {
 	@Autowired
 	private SenderRepository repository;
 
-	@RequestMapping(value = "feedback/v1/senders", method = RequestMethod.GET)
+	@RequestMapping(value = "support/v1/senders", method = RequestMethod.GET)
 	public ResponseEntity<List<Sender>> getSenders() {
 		List<Sender> result = this.repository.findAll();
 
@@ -30,13 +30,23 @@ public class SenderRestController {
 		}
 	}
 
-	@RequestMapping(value = "feedback/v1/senders/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "support/v1/senders/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Optional<Sender>> getSenderById(@PathVariable("id") long id) {
 		Optional<Sender> result = this.repository.findById(id);
 		if (result != null) {
 			return new ResponseEntity<Optional<Sender>>(result, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<Optional<Sender>>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@RequestMapping(value = "support/v1/senders/names", method = RequestMethod.GET)
+	public ResponseEntity<List<String>> getNamesOfPtype() {
+		List<String> result = this.repository.getNamesOfPtype();
+		if (result != null) {
+			return new ResponseEntity<List<String>>(result, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<String>>(HttpStatus.NOT_FOUND);
 		}
 	}
 }

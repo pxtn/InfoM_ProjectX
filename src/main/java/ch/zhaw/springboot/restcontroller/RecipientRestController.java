@@ -19,7 +19,7 @@ public class RecipientRestController {
 	@Autowired
 	private RecipientRepository repository;
 
-	@RequestMapping(value = "feedback/v1/recipients", method = RequestMethod.GET)
+	@RequestMapping(value = "support/v1/recipients", method = RequestMethod.GET)
 	public ResponseEntity<List<Recipient>> getRecipients() {
 		List<Recipient> result = this.repository.findAll();
 
@@ -30,7 +30,7 @@ public class RecipientRestController {
 		}
 	}
 
-	@RequestMapping(value = "feedback/v1/recipients/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "support/v1/recipients/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Optional<Recipient>> getRecipientById(@PathVariable("id") long id) {
 		Optional<Recipient> result = this.repository.findById(id);
 		if (result != null) {

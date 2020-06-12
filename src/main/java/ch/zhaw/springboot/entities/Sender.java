@@ -7,22 +7,22 @@ import java.util.List;
 @Entity
 public class Sender extends Person{
 
-	private String location;
+	@Column(length = 16)
+	private String phoneNumber;
 
 	@OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
 	private List<Message> messages = new ArrayList<Message>();
 
-	public Sender(String name, String email, String location, List<Message> messages) {
+	public Sender(String name, String email, String phoneNumber) {
 		super(name, email);
-		this.location = location;
-		this.messages = messages;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public Sender() {
 	}
 
-	public String getLocation() {
-		return location;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
 	public List<Message> getMessages() {

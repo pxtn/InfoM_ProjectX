@@ -19,7 +19,7 @@ public class IntentRestController {
 	@Autowired
 	private IntentRepository repository;
 
-	@RequestMapping(value = "feedback/v1/intents", method = RequestMethod.GET)
+	@RequestMapping(value = "support/v1/intents", method = RequestMethod.GET)
 	public ResponseEntity<List<Intent>> getIntents() {
 		List<Intent> result = this.repository.findAll();
 
@@ -30,7 +30,7 @@ public class IntentRestController {
 		}
 	}
 
-	@RequestMapping(value = "feedback/v1/intents/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "support/v1/intents/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Optional<Intent>> getIntentById(@PathVariable("id") long id) {
 		Optional<Intent> result = this.repository.findById(id);
 		if (result != null) {

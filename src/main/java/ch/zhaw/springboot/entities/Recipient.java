@@ -12,10 +12,9 @@ public class Recipient extends Person{
 	@OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL)
 	private List<Message> messages = new ArrayList<Message>();
 
-	public Recipient(String name, String email, String company, List<Message> messages) {
+	public Recipient(String name, String email, String company) {
 		super(name, email);
 		this.company = company;
-		this.messages = messages;
 	}
 
 	public Recipient() {
