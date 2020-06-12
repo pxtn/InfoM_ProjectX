@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface SenderRepository extends JpaRepository<Sender, Long> {
 
-    @Query("SELECT send.name FROM Sender send, Message msg WHERE send.id = msg.sender.id AND msg.date = ?1")
+    @Query("SELECT pers.name FROM Person pers, Sender send, Message msg WHERE pers.id = send.id AND send.id = msg.sender.id AND msg.date = ?1")
     public List<String> getNameOfSenderOfMessageFromDate(Date date);
 }
