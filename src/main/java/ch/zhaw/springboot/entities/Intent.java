@@ -15,7 +15,7 @@ public class Intent {
 
 	private String type;
 
-	@ManyToMany(mappedBy = "intents", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToMany(mappedBy = "intents")
 	@JsonIgnore
 	private List<Message> messages = new ArrayList<Message>();
 

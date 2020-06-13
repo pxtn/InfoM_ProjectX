@@ -9,7 +9,7 @@ public class Recipient extends Person{
 
 	private String company;
 
-	@OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "recipient")
 	private List<Message> messages = new ArrayList<Message>();
 
 	public Recipient(String name, String email, String company) {

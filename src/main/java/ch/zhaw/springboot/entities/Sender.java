@@ -10,7 +10,7 @@ public class Sender extends Person{
 	@Column(length = 16)
 	private String phoneNumber;
 
-	@OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "sender")
 	private List<Message> messages = new ArrayList<Message>();
 
 	public Sender(String name, String email, String phoneNumber) {

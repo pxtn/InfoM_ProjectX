@@ -26,7 +26,7 @@ public class Message{
 	@JsonIgnore
 	private Recipient recipient;
 
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToMany
 	private List<Intent> intents = new ArrayList<Intent>();
 
 
