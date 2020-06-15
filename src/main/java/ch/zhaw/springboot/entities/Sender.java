@@ -1,5 +1,7 @@
 package ch.zhaw.springboot.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,7 @@ public class Sender extends Person{
 	private String phoneNumber;
 
 	@OneToMany(mappedBy = "sender")
+	@JsonBackReference
 	private List<Message> messages = new ArrayList<Message>();
 
 	public Sender(String name, String email, String phoneNumber) {

@@ -1,6 +1,6 @@
 package ch.zhaw.springboot.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -18,15 +18,16 @@ public class Message{
 	@Column(length = 2000)
 	private String content;
 
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JsonIgnore
+	@ManyToOne
+	@JsonManagedReference
 	private Sender sender;
 
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JsonIgnore
+	@ManyToOne
+	@JsonManagedReference
 	private Recipient recipient;
 
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JsonManagedReference
 	private List<Intent> intents = new ArrayList<Intent>();
 
 

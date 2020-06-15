@@ -1,6 +1,6 @@
 package ch.zhaw.springboot.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class Intent {
 	private String type;
 
 	@ManyToMany(mappedBy = "intents")
-	@JsonIgnore
+	@JsonBackReference
 	private List<Message> messages = new ArrayList<Message>();
 
 	public Intent(String type) {
